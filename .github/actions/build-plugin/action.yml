@@ -13,7 +13,7 @@ runs:
         shell: bash
         working-directory: ./app
       - name: Run Lint
-        run: flutter analyze --ignore-deprecation
+        run: flutter analyze
         shell: bash
         working-directory: ./app
       - name: Run tests
