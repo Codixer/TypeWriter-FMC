@@ -31,6 +31,12 @@ class CommunicationHandler : KoinComponent {
         "127.0.0.1",
         comment = "The hostname of the server. CHANGE THIS to your servers ip."
     )
+
+    private val hostNameWebsocket: String by config(
+        "hostName-websocket",
+        "127.0.0.1",
+        comment = "The hostName-websocket of the server. CHANGE THIS to your servers ip."
+    )
     private val panelPort: Int by config(
         "panel.port",
         8080,
@@ -159,10 +165,10 @@ class CommunicationHandler : KoinComponent {
     }
 
     fun generateUrl(playerId: UUID?): String {
-        if (auth == "none") return "$BASE_URL/connect?host=$hostName&port=$port"
+        if (auth == "none") return "$BASE_URL/connect?host=$hostNameWebsocket&port=$port"
         if (auth == "session") {
             val token = generateSessionToken(playerId)
-            return "$BASE_URL/connect?host=$hostName&port=$port&token=$token"
+            return "$BASE_URL/connect?host=$hostNameWebsocket&port=$port&token=$token"
         }
         return ""
     }
