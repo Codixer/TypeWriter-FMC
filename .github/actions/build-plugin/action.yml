@@ -17,7 +17,7 @@ runs:
       #   shell: bash
       #   working-directory: ./app
       - name: Run tests
-        run: flutter test --ignore-deprecation
+        run: flutter test
         shell: bash
         working-directory: ./app
       - name: Build web app
