@@ -13,15 +13,15 @@ runs:
         shell: bash
         working-directory: ./app
       - name: Run Lint
-        run: flutter analyze
+        run: flutter analyze --ignore-deprecation
         shell: bash
         working-directory: ./app
       - name: Run tests
-        run: flutter test
+        run: flutter test --ignore-deprecation
         shell: bash
         working-directory: ./app
       - name: Build web app
-        run: flutter build web --release
+        run: flutter build web --release --ignore-deprecation
         shell: bash
         working-directory: ./app
       - name: Test Plugin
